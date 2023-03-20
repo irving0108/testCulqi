@@ -1,0 +1,34 @@
+service: test-culqi
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  region: us-east-2
+  stage: DEV
+  timeout: 120
+  memorySize: 512
+  versionFunctions: false
+  logRetentionInDays: 90
+  deploymentBucket:
+    name: culqitest-dev
+    serverSideEncryption: AES256
+  role: arn:aws:iam::201735333066:role/roleBasicLambdaCulqi
+
+plugins:
+  - serverless-deployment-bucket
+  - serverless-plugin-typescript
+  - serverless-offline
+
+functions:
+  test-culqi:
+    handler: src/handlers/testCulqi.main
+    name: LMB-01-CULQI-DEV
+    memorySize: 128
+    description: TEST CULQI
+    package:
+      include:
+        - src/handlers/**
+    events:
+      - http: 
+          path : /culqi/test
+          method: POST

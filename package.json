@@ -1,0 +1,20 @@
+{
+  "name": "test-culqi",
+  "version": "1.0.0",
+  "description": "Prueba Culqi - Joyit",
+  "main": "testCulqi.ts",
+  "scripts": {
+    "start": "serverless offline start --stage DEV --region=us-east-1"
+  },
+  "author": "Irving Chero Garcia",
+  "license": "ISC",
+  "dependencies": {
+    "serverless-deployment-bucket": "^1.6.0",
+    "serverless-offline": "^8.8.0",
+    "serverless-plugin-typescript": "^2.1.2"
+  },
+  "devDependencies": {
+    "@types/node": "^18.15.3",
+    "typescript": "^5.0.2"
+  }
+}
