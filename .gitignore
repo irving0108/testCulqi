@@ -64,3 +64,6 @@ typings/
 # IDE
 .idea
 .vscode
+
+#compilado js
+.build

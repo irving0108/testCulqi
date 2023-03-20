@@ -14,11 +14,6 @@ provider:
     serverSideEncryption: AES256
   role: arn:aws:iam::201735333066:role/roleBasicLambdaCulqi
 
-plugins:
-  - serverless-deployment-bucket
-  - serverless-plugin-typescript
-  - serverless-offline
-
 functions:
   test-culqi:
     handler: src/handlers/testCulqi.main
@@ -32,3 +27,7 @@ functions:
       - http: 
           path : /culqi/test
           method: POST
+          response:
+            ${file(config/serverless/http-response.yml)}
+    environment:
+      CULQI_TEST_TABLENAME_DYNAMO: culqi-reto-dev-01
